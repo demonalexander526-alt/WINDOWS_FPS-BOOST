@@ -1,0 +1,30 @@
+[package]
+name = "nexo_overdrive_win"
+version = "1.0.0"
+edition = "2021"
+authors = ["NEXO-TECH & ALEXANDER"]
+description = "Ultimate Continuous Windows FPS Booster for Rust"
+
+# This ensures the compiler optimizes the code for speed rather than build time
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = 'abort'
+
+[dependencies]
+# UI Framework
+ratatui = "0.26.1"
+
+# Terminal handling and input
+crossterm = { version = "0.27.0", features = ["event-stream"] }
+
+# System Monitoring (Crucial: 0.30+ uses the new API)
+sysinfo = "0.30.12"
+
+# Terminal Styling
+colored = "2.1.0"
+
+[[bin]]
+name = "nexo_overdrive"
+path = "src/main.rs"
